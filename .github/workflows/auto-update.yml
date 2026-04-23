@@ -1,0 +1,129 @@
+name: Auto-update formulae
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # daily at 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        formula:
+          - { name: dj, repo: ejfkdev/dj }
+          - { name: udf, repo: ejfkdev/udf }
+          - { name: apix, repo: ejfkdev/apix }
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check and update formula
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FORMULA_FILE="Formula/${{ matrix.formula.name }}.rb"
+
+          # Get latest release version
+          LATEST=$(gh release view --repo ${{ matrix.formula.repo }} --json tagName --jq '.tagName')
+          LATEST_VER="${LATEST#v}"
+          echo "Latest release for ${{ matrix.formula.name }}: $LATEST ($LATEST_VER)"
+
+          # Check if already up to date
+          CURRENT=$(grep '^  version ' "$FORMULA_FILE" | sed 's/.*"\(.*\)"/\1/')
+          if [ "$CURRENT" = "$LATEST_VER" ]; then
+            echo "Already up to date: $CURRENT"
+            exit 0
+          fi
+
+          echo "Updating ${{ matrix.formula.name }} from $CURRENT to $LATEST_VER"
+
+          BASE_URL="https://github.com/${{ matrix.formula.repo }}/releases/download/${LATEST}"
+          TMPDIR=$(mktemp -d)
+
+          # Define platform-arch pairs with their asset naming patterns
+          case "${{ matrix.formula.name }}" in
+            dj)
+              declare -a PLATFORMS=(
+                "macos_arm:dj-darwin-arm64"
+                "macos_intel:dj-darwin-amd64"
+                "linux_arm:dj-linux-arm64"
+                "linux_intel:dj-linux-amd64"
+              )
+              ;;
+            udf)
+              declare -a PLATFORMS=(
+                "macos_arm:udf_${LATEST_VER}_darwin_arm64.tar.gz"
+                "macos_intel:udf_${LATEST_VER}_darwin_amd64.tar.gz"
+                "linux_arm:udf_${LATEST_VER}_linux_arm64.tar.gz"
+                "linux_intel:udf_${LATEST_VER}_linux_amd64.tar.gz"
+              )
+              ;;
+            apix)
+              declare -a PLATFORMS=(
+                "macos_arm:apix_${LATEST_VER}_darwin_arm64.tar.gz"
+                "macos_intel:apix_${LATEST_VER}_darwin_amd64.tar.gz"
+                "linux_arm:apix_${LATEST_VER}_linux_arm64.tar.gz"
+                "linux_intel:apix_${LATEST_VER}_linux_amd64.tar.gz"
+              )
+              ;;
+          esac
+
+          # Update version
+          sed -i "s/^  version \".*\"/  version \"${LATEST_VER}\"/" "$FORMULA_FILE"
+
+          # Download each asset, compute sha256, and update url + sha256 in formula
+          LINE_NUM=0
+          for ENTRY in "${PLATFORMS[@]}"; do
+            PLATFORM="${ENTRY%%:*}"
+            ASSET="${ENTRY#*:}"
+
+            # Download and hash
+            curl -sL "${BASE_URL}/${ASSET}" -o "${TMPDIR}/${ASSET}"
+            SHA=$(shasum -a 256 "${TMPDIR}/${ASSET}" | cut -d' ' -f1)
+            echo "${PLATFORM}: ${ASSET} -> ${SHA}"
+
+            # Find the url/sha256 line pair for this platform section
+            # We use line numbers to replace precisely
+            URL_LINE=$(grep -n "url \".*${ASSET##*_}\"" "$FORMULA_FILE" | head -1 | cut -d: -f1 || true)
+            # Fallback: match by partial pattern
+            if [ -z "$URL_LINE" ]; then
+              # Find url line by matching the platform-arch suffix in filename
+              case "$PLATFORM" in
+                macos_arm)  SUFFIX="darwin_arm64" ;;
+                macos_intel) SUFFIX="darwin_amd64" ;;
+                linux_arm)  SUFFIX="linux_arm64" ;;
+                linux_intel) SUFFIX="linux_amd64" ;;
+              esac
+              URL_LINE=$(grep -n "url \".*${SUFFIX}" "$FORMULA_FILE" | head -1 | cut -d: -f1)
+            fi
+
+            SHA_LINE=$((URL_LINE + 1))
+
+            # Replace url and sha256 using line numbers
+            sed -i "${URL_LINE}s|url \".*\"|url \"${BASE_URL}/${ASSET}\"|" "$FORMULA_FILE"
+            sed -i "${SHA_LINE}s|sha256 \".*\"|sha256 \"${SHA}\"|" "$FORMULA_FILE"
+          done
+
+          rm -rf "$TMPDIR"
+
+          # Verify the formula is valid Ruby
+          ruby -c "$FORMULA_FILE"
+
+      - name: Create and merge PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "auto-update ${{ matrix.formula.name }}"
+          title: "auto-update ${{ matrix.formula.name }}"
+          branch: auto-update-${{ matrix.formula.name }}
+          delete-branch: true
+
+      - name: Merge PR
+        run: |
+          PR_NUMBER=$(gh pr list --head "auto-update-${{ matrix.formula.name }}" --state open --json number --jq '.[0].number')
+          if [ -n "$PR_NUMBER" ]; then
+            gh pr merge "$PR_NUMBER" --squash --admin
+            echo "Merged PR #$PR_NUMBER"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
