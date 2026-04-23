@@ -6,22 +6,22 @@ class Dj < Formula
   on_macos do
     on_arm do
       url "https://github.com/ejfkdev/dj/releases/download/v0.2.0/dj-darwin-arm64"
-      sha256 "ceca2c71a477a3e091861936874880c702cd5404fd2c543967aea6cc79e4aee5"
+      sha256 "710ce7abf48fda62985069d60e97f6d94f0df1e38867894090fb06d7346d16b4"
     end
     on_intel do
       url "https://github.com/ejfkdev/dj/releases/download/v0.2.0/dj-darwin-amd64"
-      sha256 "254ed6218471844e10dd059f70b47ec6b21db03fefa8a931684a46a06aee03f2"
+      sha256 "4c839ceaafc6fe8a5eb55a6084eedf0298ce65c424a4a827aed7d101c44fe526"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/ejfkdev/dj/releases/download/v0.2.0/dj-linux-arm64"
-      sha256 "f2e9781ebaee2cc18db740113a1a7012f11a4166d67b8856268204b8326f7893"
+      sha256 "524315c21be4416f8d7ce35b6b1f2d8a046a6a35b7b90968732bc41de65586ec"
     end
     on_intel do
       url "https://github.com/ejfkdev/dj/releases/download/v0.2.0/dj-linux-amd64"
-      sha256 "959a241489b02c6557645a5ee9a36c93168241d72566c7f6a88a62c3b40708cb"
+      sha256 "0ffe2b5952a6cd0814694ffb43b759c3b530ed9e566c13d5e66ccd0b74ed2dd0"
     end
   end
 
