@@ -14,6 +14,7 @@ jobs:
           - { name: dj, repo: ejfkdev/dj }
           - { name: udf, repo: ejfkdev/udf }
           - { name: apix, repo: ejfkdev/apix }
+          - { name: tspc, repo: ejfkdev/typespec-rs }
     steps:
       - uses: actions/checkout@v4
 
@@ -64,6 +65,14 @@ jobs:
                 "macos_intel:apix_${LATEST_VER}_darwin_amd64.tar.gz"
                 "linux_arm:apix_${LATEST_VER}_linux_arm64.tar.gz"
                 "linux_intel:apix_${LATEST_VER}_linux_amd64.tar.gz"
+              )
+              ;;
+            tspc)
+              declare -a PLATFORMS=(
+                "macos_arm:tspc-aarch64-apple-darwin"
+                "macos_intel:tspc-x86_64-apple-darwin"
+                "linux_arm:tspc-aarch64-unknown-linux-gnu"
+                "linux_intel:tspc-x86_64-unknown-linux-gnu"
               )
               ;;
           esac
