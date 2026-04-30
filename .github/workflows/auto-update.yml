@@ -15,6 +15,7 @@ jobs:
           - { name: udf, repo: ejfkdev/udf }
           - { name: apix, repo: ejfkdev/apix }
           - { name: tspc, repo: ejfkdev/typespec-rs }
+          - { name: vcc, repo: ejfkdev/vcc-cli }
     steps:
       - uses: actions/checkout@v4
 
@@ -73,6 +74,14 @@ jobs:
                 "macos_intel:tspc-x86_64-apple-darwin"
                 "linux_arm:tspc-aarch64-unknown-linux-gnu"
                 "linux_intel:tspc-x86_64-unknown-linux-gnu"
+              )
+              ;;
+            vcc)
+              declare -a PLATFORMS=(
+                "macos_arm:vcc-aarch64-macos"
+                "macos_intel:vcc-x86_64-macos"
+                "linux_arm:vcc-aarch64-linux-gnu"
+                "linux_intel:vcc-x86_64-linux-gnu"
               )
               ;;
           esac
