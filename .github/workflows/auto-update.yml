@@ -16,6 +16,7 @@ jobs:
           - { name: apix, repo: ejfkdev/apix }
           - { name: tspc, repo: ejfkdev/typespec-rs }
           - { name: vcc, repo: ejfkdev/vcc-cli }
+          - { name: zaip, repo: ejfkdev/zaip }
     steps:
       - uses: actions/checkout@v4
 
@@ -82,6 +83,18 @@ jobs:
                 "macos_intel:vcc-x86_64-macos"
                 "linux_arm:vcc-aarch64-linux-gnu"
                 "linux_intel:vcc-x86_64-linux-gnu"
+              )
+              ;;
+            zaip)
+              declare -a PLATFORMS=(
+                "macos_arm:zaip-client_macos_arm64"
+                "macos_arm_server:zaip-server_macos_arm64"
+                "macos_intel:zaip-client_macos_amd64"
+                "macos_intel_server:zaip-server_macos_amd64"
+                "linux_arm:zaip-client_linux_arm64"
+                "linux_arm_server:zaip-server_linux_arm64"
+                "linux_intel:zaip-client_linux_amd64"
+                "linux_intel_server:zaip-server_linux_amd64"
               )
               ;;
           esac

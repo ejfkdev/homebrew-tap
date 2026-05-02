@@ -13,6 +13,7 @@ brew install ejfkdev/tap/udf
 brew install ejfkdev/tap/apix
 brew install ejfkdev/tap/tspc
 brew install ejfkdev/tap/vcc
+brew install ejfkdev/tap/zaip
 
 # 或者先添加 tap，再安装
 brew tap ejfkdev/tap
@@ -28,3 +29,4 @@ brew install dj
 | [apix](https://github.com/ejfkdev/apix) | 0.0.2 | CLI 工具 |
 | [tspc](https://github.com/ejfkdev/typespec-rs) | 0.1.0 | TypeSpec 编译器 |
 | [vcc](https://github.com/ejfkdev/vcc-cli) | 0.1.0 | VCC CLI 工具 |
+| [zaip](https://github.com/ejfkdev/zaip) | 1.1.0 | ZAIP 客户端和服务端 |
