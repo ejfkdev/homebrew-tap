@@ -17,6 +17,7 @@ jobs:
           - { name: tspc, repo: ejfkdev/typespec-rs }
           - { name: vcc, repo: ejfkdev/vcc-cli }
           - { name: zaip, repo: ejfkdev/zaip }
+          - { name: saw, repo: ejfkdev/ShellAnyWhere }
     steps:
       - uses: actions/checkout@v4
 
@@ -97,20 +98,39 @@ jobs:
                 "linux_intel_server:zaip-server_linux_amd64"
               )
               ;;
+            saw)
+              declare -a PLATFORMS=(
+                "macos_arm:saw-client-macos-arm64"
+                "macos_arm_server:saw-server-macos-arm64"
+                "macos_arm_shell:saw-shell-macos-arm64"
+                "macos_intel:saw-client-macos-x86_64"
+                "macos_intel_server:saw-server-macos-x86_64"
+                "macos_intel_shell:saw-shell-macos-x86_64"
+                "linux_arm:saw-client-linux-arm64"
+                "linux_arm_server:saw-server-linux-arm64"
+                "linux_arm_shell:saw-shell-linux-arm64"
+                "linux_intel:saw-client-linux-x86_64"
+                "linux_intel_server:saw-server-linux-x86_64"
+                "linux_intel_shell:saw-shell-linux-x86_64"
+              )
+              ;;
           esac
 
           # Update version
           sed -i "s/^  version \".*\"/  version \"${LATEST_VER}\"/" "$FORMULA_FILE"
 
-          # Download each asset, compute sha256, and update url + sha256 in formula
-          LINE_NUM=0
+          # Get sha256 from GitHub API instead of downloading
           for ENTRY in "${PLATFORMS[@]}"; do
             PLATFORM="${ENTRY%%:*}"
             ASSET="${ENTRY#*:}"
 
-            # Download and hash
-            curl -sL "${BASE_URL}/${ASSET}" -o "${TMPDIR}/${ASSET}"
-            SHA=$(shasum -a 256 "${TMPDIR}/${ASSET}" | cut -d' ' -f1)
+            # Get sha256 from GitHub release asset digest
+            SHA=$(gh api "repos/${{ matrix.formula.repo }}/releases/tags/${LATEST}" --jq ".assets[] | select(.name==\"${ASSET}\") | .digest" | sed 's/sha256://')
+            if [ -z "$SHA" ]; then
+              echo "ERROR: No sha256 digest for ${ASSET}, downloading to compute..."
+              curl -sL "${BASE_URL}/${ASSET}" -o "${TMPDIR}/${ASSET}"
+              SHA=$(shasum -a 256 "${TMPDIR}/${ASSET}" | cut -d' ' -f1)
+            fi
             echo "${PLATFORM}: ${ASSET} -> ${SHA}"
 
             # Find the url/sha256 line pair for this platform section
