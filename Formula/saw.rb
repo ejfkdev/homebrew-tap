@@ -10,12 +10,12 @@ class Saw < Formula
 
       resource "server" do
         url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-server-macos-arm64"
-        sha256 "560066479d0c496f3b16f3845c0facf490c6e37b9ae2d172df7ad636a8825c8c"
+        sha256 "80b66782142b875aa145dbfbec696141ae33cac697a32cb5be1a58ec0758ffd5"
       end
 
       resource "shell" do
         url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-shell-macos-arm64"
-        sha256 "d8857c7d6067e65bad4334ca58bdc1c0d307fcc8edbbcecea3bcb245002e9ed0"
+        sha256 "2dd5bb0744261f5f7135b83c13da64c9e3250bbc134657887c739a74f1cd425f"
       end
     end
     on_intel do
@@ -24,12 +24,12 @@ class Saw < Formula
 
       resource "server" do
         url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-server-macos-x86_64"
-        sha256 "83b57ca74867a322c7124ecc7bc6831d5d35c45c81254c361a74e77be56187a1"
+        sha256 "2d80f19766c812d0a3f31c059926ed8c15329c6387cee70c849ee9ca636ebbdb"
       end
 
       resource "shell" do
         url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-shell-macos-x86_64"
-        sha256 "841619ad8e02c2db518faadbfdb683512e1ecd620d06708fb0d78d1d42066bc3"
+        sha256 "6a6c521f306d415343c7624fec7407792755c1fd621402a4593df9b4c135ede3"
       end
     end
   end
@@ -41,12 +41,12 @@ class Saw < Formula
 
       resource "server" do
         url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-server-linux-arm64"
-        sha256 "93b4fa5a5f6821a740318822ce8e160411f8619392d6cf8cc32d475aa465c998"
+        sha256 "233f328dc8a929e515e6375c880b432a7f127a65d57acce418d0d76aee4cbdd0"
       end
 
       resource "shell" do
         url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-shell-linux-arm64"
-        sha256 "8ac2cb542050a0448199f1321dd0c6aced483a5c4e857c2fefc82857c7ad6a93"
+        sha256 "fcac08551adf274b118ecf10cab77d8e45bfe298f3008157810f20a88663cc4f"
       end
     end
     on_intel do
@@ -55,12 +55,12 @@ class Saw < Formula
 
       resource "server" do
         url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-server-linux-x86_64"
-        sha256 "15819d5c337d38a4ffef532229ecf5c0253ad94ca8f3ab6943bef1c11b4f23e6"
+        sha256 "d94c5e9d59cf1862ead7cfcbd5242f1ca3cfb2d1c08af0521091955f34813589"
       end
 
       resource "shell" do
         url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-shell-linux-x86_64"
-        sha256 "dc1db91137b55bf43c72fe5d6d1b72a1c35a5dbba8d21d33176bc1b44e56a36a"
+        sha256 "2b7a3582cd7b1ef1fe37feb2384296c1c3eff52731b0cf95440e341008e84edc"
       end
     end
   end
