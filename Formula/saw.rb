@@ -1,21 +1,21 @@
 class Saw < Formula
   desc "ShellAnyWhere - shell, client and server CLI tools"
   homepage "https://github.com/ejfkdev/ShellAnyWhere"
-  version "0.1.0"
+  version "0.2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-client-macos-arm64"
-      sha256 "37c3f90515d2328eeb8aa80609100092b213ab52f4d098d957717485013a7d7a"
+      url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.2.0/saw-shell-linux-x86_64"
+      sha256 "5cb10c8c5c7f3eca553d4c20b0930b7c4e6e8c21c8b98fdb9837f1e812aff0b2"
 
       resource "server" do
-        url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-server-macos-arm64"
-        sha256 "80b66782142b875aa145dbfbec696141ae33cac697a32cb5be1a58ec0758ffd5"
+        url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.2.0/saw-server-macos-arm64"
+        sha256 "c8bac0fa93d571468fb371178042ddceafcc229c44cc2e5cfd42d07ce65c89d6"
       end
 
       resource "shell" do
-        url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-shell-macos-arm64"
-        sha256 "2dd5bb0744261f5f7135b83c13da64c9e3250bbc134657887c739a74f1cd425f"
+        url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.2.0/saw-shell-macos-arm64"
+        sha256 "e6afd7c430fdf7f2eeb39c2b02eada694bb5e6461449921eb6762deace114f67"
       end
     end
     on_intel do
@@ -36,17 +36,17 @@ class Saw < Formula
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-client-linux-arm64"
-      sha256 "d9a02cb1748b2a49c7426d3c0f7d0c78fc207b087fa5002a54e34cc7725878f2"
+      url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.2.0/saw-client-linux-arm64"
+      sha256 "aa47dcd21ae3bb882b078debde51b43762f6fb62e04677c2e493a4b38efbda7b"
 
       resource "server" do
-        url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-server-linux-arm64"
-        sha256 "233f328dc8a929e515e6375c880b432a7f127a65d57acce418d0d76aee4cbdd0"
+        url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.2.0/saw-server-linux-arm64"
+        sha256 "5ecdc6ef205689aff779514d0f6a2d861f47ce3d7e9dde33f8bd6219a03197d5"
       end
 
       resource "shell" do
-        url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.1.0/saw-shell-linux-arm64"
-        sha256 "fcac08551adf274b118ecf10cab77d8e45bfe298f3008157810f20a88663cc4f"
+        url "https://github.com/ejfkdev/ShellAnyWhere/releases/download/v0.2.0/saw-shell-linux-arm64"
+        sha256 "c6907eeaf1a3e9c0455487205a702ed3b6c70b8fb32163fc344e1c46e09ebdae"
       end
     end
     on_intel do
