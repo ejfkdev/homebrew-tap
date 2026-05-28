@@ -21,146 +21,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check and update formula
+      - name: Update formula
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 update_formula.py "${{ matrix.formula.name }}" "${{ matrix.formula.repo }}"
+
+      - name: Verify Ruby syntax
+        run: ruby -c "Formula/${{ matrix.formula.name }}.rb"
+
+      - name: Check for changes
+        id: changes
         run: |
-          FORMULA_FILE="Formula/${{ matrix.formula.name }}.rb"
-
-          # Get latest release version
-          LATEST=$(gh release view --repo ${{ matrix.formula.repo }} --json tagName --jq '.tagName')
-          LATEST_VER="${LATEST#v}"
-          echo "Latest release for ${{ matrix.formula.name }}: $LATEST ($LATEST_VER)"
-
-          # Check if already up to date
-          CURRENT=$(grep '^  version ' "$FORMULA_FILE" | sed 's/.*"\(.*\)"/\1/')
-          if [ "$CURRENT" = "$LATEST_VER" ]; then
-            echo "Already up to date: $CURRENT"
-            exit 0
+          if git diff --quiet Formula/; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
-          echo "Updating ${{ matrix.formula.name }} from $CURRENT to $LATEST_VER"
-
-          BASE_URL="https://github.com/${{ matrix.formula.repo }}/releases/download/${LATEST}"
-          TMPDIR=$(mktemp -d)
-
-          # Define platform-arch pairs with their asset naming patterns
-          case "${{ matrix.formula.name }}" in
-            dj)
-              declare -a PLATFORMS=(
-                "macos_arm:dj-darwin-arm64"
-                "macos_intel:dj-darwin-amd64"
-                "linux_arm:dj-linux-arm64"
-                "linux_intel:dj-linux-amd64"
-              )
-              ;;
-            udf)
-              declare -a PLATFORMS=(
-                "macos_arm:udf_${LATEST_VER}_darwin_arm64.tar.gz"
-                "macos_intel:udf_${LATEST_VER}_darwin_amd64.tar.gz"
-                "linux_arm:udf_${LATEST_VER}_linux_arm64.tar.gz"
-                "linux_intel:udf_${LATEST_VER}_linux_amd64.tar.gz"
-              )
-              ;;
-            apix)
-              declare -a PLATFORMS=(
-                "macos_arm:apix_${LATEST_VER}_darwin_arm64.tar.gz"
-                "macos_intel:apix_${LATEST_VER}_darwin_amd64.tar.gz"
-                "linux_arm:apix_${LATEST_VER}_linux_arm64.tar.gz"
-                "linux_intel:apix_${LATEST_VER}_linux_amd64.tar.gz"
-              )
-              ;;
-            tspc)
-              declare -a PLATFORMS=(
-                "macos_arm:tspc-aarch64-apple-darwin"
-                "macos_intel:tspc-x86_64-apple-darwin"
-                "linux_arm:tspc-aarch64-unknown-linux-gnu"
-                "linux_intel:tspc-x86_64-unknown-linux-gnu"
-              )
-              ;;
-            vcc)
-              declare -a PLATFORMS=(
-                "macos_arm:vcc-aarch64-macos"
-                "macos_intel:vcc-x86_64-macos"
-                "linux_arm:vcc-aarch64-linux-gnu"
-                "linux_intel:vcc-x86_64-linux-gnu"
-              )
-              ;;
-            zaip)
-              declare -a PLATFORMS=(
-                "macos_arm:zaip-client_macos_arm64"
-                "macos_arm_server:zaip-server_macos_arm64"
-                "macos_intel:zaip-client_macos_amd64"
-                "macos_intel_server:zaip-server_macos_amd64"
-                "linux_arm:zaip-client_linux_arm64"
-                "linux_arm_server:zaip-server_linux_arm64"
-                "linux_intel:zaip-client_linux_amd64"
-                "linux_intel_server:zaip-server_linux_amd64"
-              )
-              ;;
-            saw)
-              declare -a PLATFORMS=(
-                "macos_arm:saw-client-macos-arm64"
-                "macos_arm_server:saw-server-macos-arm64"
-                "macos_arm_shell:saw-shell-macos-arm64"
-                "macos_intel:saw-client-macos-x86_64"
-                "macos_intel_server:saw-server-macos-x86_64"
-                "macos_intel_shell:saw-shell-macos-x86_64"
-                "linux_arm:saw-client-linux-arm64"
-                "linux_arm_server:saw-server-linux-arm64"
-                "linux_arm_shell:saw-shell-linux-arm64"
-                "linux_intel:saw-client-linux-x86_64"
-                "linux_intel_server:saw-server-linux-x86_64"
-                "linux_intel_shell:saw-shell-linux-x86_64"
-              )
-              ;;
-          esac
-
-          # Update version
-          sed -i "s/^  version \".*\"/  version \"${LATEST_VER}\"/" "$FORMULA_FILE"
-
-          # Get sha256 from GitHub API instead of downloading
-          for ENTRY in "${PLATFORMS[@]}"; do
-            PLATFORM="${ENTRY%%:*}"
-            ASSET="${ENTRY#*:}"
-
-            # Get sha256 from GitHub release asset digest
-            SHA=$(gh api "repos/${{ matrix.formula.repo }}/releases/tags/${LATEST}" --jq ".assets[] | select(.name==\"${ASSET}\") | .digest" | sed 's/sha256://')
-            if [ -z "$SHA" ]; then
-              echo "ERROR: No sha256 digest for ${ASSET}, downloading to compute..."
-              curl -sL "${BASE_URL}/${ASSET}" -o "${TMPDIR}/${ASSET}"
-              SHA=$(shasum -a 256 "${TMPDIR}/${ASSET}" | cut -d' ' -f1)
-            fi
-            echo "${PLATFORM}: ${ASSET} -> ${SHA}"
-
-            # Find the url/sha256 line pair for this platform section
-            # We use line numbers to replace precisely
-            URL_LINE=$(grep -n "url \".*${ASSET##*_}\"" "$FORMULA_FILE" | head -1 | cut -d: -f1 || true)
-            # Fallback: match by partial pattern
-            if [ -z "$URL_LINE" ]; then
-              # Find url line by matching the platform-arch suffix in filename
-              case "$PLATFORM" in
-                macos_arm)  SUFFIX="darwin_arm64" ;;
-                macos_intel) SUFFIX="darwin_amd64" ;;
-                linux_arm)  SUFFIX="linux_arm64" ;;
-                linux_intel) SUFFIX="linux_amd64" ;;
-              esac
-              URL_LINE=$(grep -n "url \".*${SUFFIX}" "$FORMULA_FILE" | head -1 | cut -d: -f1)
-            fi
-
-            SHA_LINE=$((URL_LINE + 1))
-
-            # Replace url and sha256 using line numbers
-            sed -i "${URL_LINE}s|url \".*\"|url \"${BASE_URL}/${ASSET}\"|" "$FORMULA_FILE"
-            sed -i "${SHA_LINE}s|sha256 \".*\"|sha256 \"${SHA}\"|" "$FORMULA_FILE"
-          done
-
-          rm -rf "$TMPDIR"
-
-          # Verify the formula is valid Ruby
-          ruby -c "$FORMULA_FILE"
-
       - name: Create and merge PR
+        if: steps.changes.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -170,6 +49,7 @@ jobs:
           delete-branch: true
 
       - name: Merge PR
+        if: steps.changes.outputs.changed == 'true'
         run: |
           PR_NUMBER=$(gh pr list --head "auto-update-${{ matrix.formula.name }}" --state open --json number --jq '.[0].number')
           if [ -n "$PR_NUMBER" ]; then
