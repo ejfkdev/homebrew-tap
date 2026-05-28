@@ -26,7 +26,6 @@ class Dj < Formula
   end
 
   def install
-    # Downloaded file is named after the OS/arch, rename to unified command
     bin.install Dir["dj-*"].first => "dj"
   end
 

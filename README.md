@@ -25,10 +25,10 @@ brew install dj
 
 | Formula | Version | Description |
 |---------|---------|-------------|
-| [dj](https://github.com/ejfkdev/dj) | 0.2.0 | CLI tool |
+| [dj](https://github.com/ejfkdev/dj) | 0.3.0 | CLI tool |
 | [udf](https://github.com/ejfkdev/udf) | 0.1.0 | CLI tool |
 | [apix](https://github.com/ejfkdev/apix) | 0.0.2 | CLI tool |
-| [tspc](https://github.com/ejfkdev/typespec-rs) | 0.1.0 | TypeSpec compiler |
+| [tspc](https://github.com/ejfkdev/typespec-rs) | 0.5.0 | TypeSpec compiler |
 | [vcc](https://github.com/ejfkdev/vcc-cli) | 0.1.0 | VCC CLI tool |
 | [zaip](https://github.com/ejfkdev/zaip) | 1.1.0 | ZAIP client & server |
-| [saw](https://github.com/ejfkdev/ShellAnyWhere) | 0.1.0 | ShellAnyWhere (saw-client, saw-server, saw-shell) |
+| [saw](https://github.com/ejfkdev/ShellAnyWhere) | 0.2.0 | ShellAnyWhere (saw-client, saw-server, saw-shell) |

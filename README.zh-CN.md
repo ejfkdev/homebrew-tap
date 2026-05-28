@@ -25,10 +25,10 @@ brew install dj
 
 | 软件 | 版本 | 说明 |
 |------|------|------|
-| [dj](https://github.com/ejfkdev/dj) | 0.2.0 | CLI 工具 |
+| [dj](https://github.com/ejfkdev/dj) | 0.3.0 | CLI 工具 |
 | [udf](https://github.com/ejfkdev/udf) | 0.1.0 | CLI 工具 |
 | [apix](https://github.com/ejfkdev/apix) | 0.0.2 | CLI 工具 |
-| [tspc](https://github.com/ejfkdev/typespec-rs) | 0.1.0 | TypeSpec 编译器 |
+| [tspc](https://github.com/ejfkdev/typespec-rs) | 0.5.0 | TypeSpec 编译器 |
 | [vcc](https://github.com/ejfkdev/vcc-cli) | 0.1.0 | VCC CLI 工具 |
 | [zaip](https://github.com/ejfkdev/zaip) | 1.1.0 | ZAIP 客户端和服务端 |
-| [saw](https://github.com/ejfkdev/ShellAnyWhere) | 0.1.0 | ShellAnyWhere (saw-client, saw-server, saw-shell) |
+| [saw](https://github.com/ejfkdev/ShellAnyWhere) | 0.2.0 | ShellAnyWhere (saw-client, saw-server, saw-shell) |
