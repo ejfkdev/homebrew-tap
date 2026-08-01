@@ -18,6 +18,7 @@ jobs:
           - { name: vcc, repo: ejfkdev/vcc-cli }
           - { name: zaip, repo: ejfkdev/zaip }
           - { name: saw, repo: ejfkdev/ShellAnyWhere }
+          - { name: dns, repo: ejfkdev/dns }
     steps:
       - uses: actions/checkout@v4
         with:
