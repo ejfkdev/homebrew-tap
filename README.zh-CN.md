@@ -15,6 +15,7 @@ brew install ejfkdev/tap/tspc
 brew install ejfkdev/tap/vcc
 brew install ejfkdev/tap/zaip
 brew install ejfkdev/tap/saw
+brew install ejfkdev/tap/dns
 
 # 或者先添加 tap，再安装
 brew tap ejfkdev/tap
@@ -32,3 +33,4 @@ brew install dj
 | [vcc](https://github.com/ejfkdev/vcc-cli) | 0.1.0 | VCC CLI 工具 |
 | [zaip](https://github.com/ejfkdev/zaip) | 1.1.0 | ZAIP 客户端和服务端 |
 | [saw](https://github.com/ejfkdev/ShellAnyWhere) | 0.2.0 | ShellAnyWhere (saw-client, saw-server, saw-shell) |
+| [dns](https://github.com/ejfkdev/dns) | 0.1.0 | DNS CLI 工具 |
