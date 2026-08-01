@@ -105,6 +105,12 @@ PATTERNS = {
         "linux_arm": "saw-client-linux-arm64",
         "linux_intel": "saw-client-linux-x86_64",
     },
+    "dns": {
+        "macos_arm": "dns-{ver}-aarch64-apple-darwin",
+        "macos_intel": "dns-{ver}-x86_64-apple-darwin",
+        "linux_arm": "dns-{ver}-aarch64-unknown-linux-gnu",
+        "linux_intel": "dns-{ver}-x86_64-unknown-linux-gnu",
+    },
 }
 
 # Extra resources for multi-binary formulas
@@ -196,6 +202,14 @@ INSTALL_TEST = {
     system "#{bin}/saw-client", "--help"
     system "#{bin}/saw-server", "--help"
     system "#{bin}/saw-shell", "--help"
+  end""",
+    "dns": """
+  def install
+    bin.install Dir["dns-*"].first => "dns"
+  end
+
+  test do
+    system "#{bin}/dns", "--help"
   end""",
 }
 
