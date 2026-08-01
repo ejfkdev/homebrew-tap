@@ -20,6 +20,8 @@ jobs:
           - { name: saw, repo: ejfkdev/ShellAnyWhere }
     steps:
       - uses: actions/checkout@v4
+        with:
+          node-version: 24
 
       - name: Update formula
         env:
