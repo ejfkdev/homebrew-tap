@@ -16,6 +16,7 @@ brew install ejfkdev/tap/vcc
 brew install ejfkdev/tap/zaip
 brew install ejfkdev/tap/saw
 brew install ejfkdev/tap/dns
+brew install ejfkdev/tap/oss
 
 # 或者先添加 tap，再安装
 brew tap ejfkdev/tap
@@ -34,3 +35,4 @@ brew install dj
 | [zaip](https://github.com/ejfkdev/zaip) | 1.1.0 | ZAIP 客户端和服务端 |
 | [saw](https://github.com/ejfkdev/ShellAnyWhere) | 0.2.0 | ShellAnyWhere (saw-client, saw-server, saw-shell) |
 | [dns](https://github.com/ejfkdev/dns) | 0.1.0 | 多服务器 DNS 查询 CLI（DoT/DoH/DoQ/HTTPDNS） |
+| [oss](https://github.com/ejfkdev/oss) | 0.1.0 | S3 兼容的跨云对象存储 CLI（AWS / 阿里云 / 腾讯云 / 华为云 / 七牛 / GCS / R2 / MinIO） |

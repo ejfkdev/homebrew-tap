@@ -111,6 +111,12 @@ PATTERNS = {
         "linux_arm": "dns-{ver}-aarch64-unknown-linux-gnu",
         "linux_intel": "dns-{ver}-x86_64-unknown-linux-gnu",
     },
+    "oss": {
+        "macos_arm": "oss-{ver}-darwin-arm64.tar.gz",
+        "macos_intel": "oss-{ver}-darwin-amd64.tar.gz",
+        "linux_arm": "oss-{ver}-linux-arm64.tar.gz",
+        "linux_intel": "oss-{ver}-linux-amd64.tar.gz",
+    },
 }
 
 # Extra resources for multi-binary formulas
@@ -210,6 +216,14 @@ INSTALL_TEST = {
 
   test do
     system "#{bin}/dns", "--help"
+  end""",
+    "oss": """
+  def install
+    bin.install Dir["oss-*"].first => "oss"
+  end
+
+  test do
+    system "#{bin}/oss", "--help"
   end""",
 }
 
