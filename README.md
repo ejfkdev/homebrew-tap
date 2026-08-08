@@ -35,4 +35,4 @@ brew install dj
 | [zaip](https://github.com/ejfkdev/zaip) | 1.1.0 | ZAIP client & server |
 | [saw](https://github.com/ejfkdev/ShellAnyWhere) | 0.2.0 | ShellAnyWhere (saw-client, saw-server, saw-shell) |
 | [dns](https://github.com/ejfkdev/dns) | 0.1.0 | Multi-server DNS query CLI (DoT/DoH/DoQ/HTTPDNS) |
-| [oss](https://github.com/ejfkdev/oss) | 0.1.0 | S3-compatible cross-cloud object storage CLI (AWS / Aliyun / Tencent / Huawei / Qiniu / GCS / R2 / MinIO) |
+| [oss](https://github.com/ejfkdev/oss) | 0.1.1 | S3-compatible cross-cloud object storage CLI (AWS / Aliyun / Tencent / Huawei / Qiniu / GCS / R2 / MinIO) |
