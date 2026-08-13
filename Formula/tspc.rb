@@ -1,27 +1,27 @@
 class Tspc < Formula
   desc "TypeSpec compiler CLI"
   homepage "https://github.com/ejfkdev/typespec-rs"
-  version "0.5.3"
+  version "0.5.6"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/typespec-rs/releases/download/v0.5.3/tspc-aarch64-apple-darwin"
-      sha256 "d042cecfb7a5b2bbd174f4a3ddba8c9308229b85fc521b29c650bc952a7fcca0"
+      url "https://github.com/ejfkdev/typespec-rs/releases/download/v0.5.6/tspc-aarch64-apple-darwin"
+      sha256 "5086dfad7566b7bcee8724f2edb1505e083d70d0c13d7b50f8a409e66e343882"
     end
     on_intel do
-      url "https://github.com/ejfkdev/typespec-rs/releases/download/v0.5.3/tspc-x86_64-apple-darwin"
-      sha256 "a3e6b63957b4afa510ce30bdbe27d4f4fd8e607b23ca195fc5d925fbd78f836d"
+      url "https://github.com/ejfkdev/typespec-rs/releases/download/v0.5.6/tspc-x86_64-apple-darwin"
+      sha256 "ca6a50fdbc7815549666aa6f087315c0c72f40df08312ab3495d8df149c0123f"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/typespec-rs/releases/download/v0.5.3/tspc-aarch64-unknown-linux-gnu"
-      sha256 "a273055ab322b214d729f8cca46fe0359acb9ba9267e81dc354ed313791838ae"
+      url "https://github.com/ejfkdev/typespec-rs/releases/download/v0.5.6/tspc-aarch64-unknown-linux-gnu"
+      sha256 "d35b40707a6506b676aefcd541156697ff8072e8b579c639a18e51747c2633f5"
     end
     on_intel do
-      url "https://github.com/ejfkdev/typespec-rs/releases/download/v0.5.3/tspc-x86_64-unknown-linux-gnu"
-      sha256 "70dbbd1b50b5024a4fcabb48a3e3da8ae234919aafe0d6c33b15a6446afd11b2"
+      url "https://github.com/ejfkdev/typespec-rs/releases/download/v0.5.6/tspc-x86_64-unknown-linux-gnu"
+      sha256 "7e9032035b43dafa311de5ab032100207f29943b4fcd6e2e0fc8a9227324a4f3"
     end
   end
 
