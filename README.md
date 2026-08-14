@@ -17,6 +17,7 @@ brew install ejfkdev/tap/zaip
 brew install ejfkdev/tap/saw
 brew install ejfkdev/tap/dns
 brew install ejfkdev/tap/oss
+brew install ejfkdev/tap/jd
 
 # Or tap first, then install
 brew tap ejfkdev/tap
@@ -36,3 +37,4 @@ brew install dj
 | [saw](https://github.com/ejfkdev/ShellAnyWhere) | 0.2.0 | ShellAnyWhere (saw-client, saw-server, saw-shell) |
 | [dns](https://github.com/ejfkdev/dns) | 0.1.0 | Multi-server DNS query CLI (DoT/DoH/DoQ/HTTPDNS) |
 | [oss](https://github.com/ejfkdev/oss) | 0.1.2 | S3-compatible cross-cloud object storage CLI (AWS / Aliyun / Tencent / Huawei / Qiniu / GCS / R2 / MinIO) |
+| [jd](https://github.com/ejfkdev/jd) | 1.0.0 | JavaScript deobfuscator (obfuscator.io + unminify). Go port of webcrack and synchrony |

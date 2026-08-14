@@ -117,6 +117,12 @@ PATTERNS = {
         "linux_arm": "oss-{ver}-linux-arm64.tar.gz",
         "linux_intel": "oss-{ver}-linux-amd64.tar.gz",
     },
+    "jd": {
+        "macos_arm": "jd-{ver}-darwin-arm64",
+        "macos_intel": "jd-{ver}-darwin-amd64",
+        "linux_arm": "jd-{ver}-linux-arm64",
+        "linux_intel": "jd-{ver}-linux-amd64",
+    },
 }
 
 # Extra resources for multi-binary formulas
@@ -224,6 +230,14 @@ INSTALL_TEST = {
 
   test do
     system "#{bin}/oss", "--help"
+  end""",
+    "jd": """
+  def install
+    bin.install Dir["jd-*"].first => "jd"
+  end
+
+  test do
+    system "#{bin}/jd", "--help"
   end""",
 }
 

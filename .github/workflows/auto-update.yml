@@ -20,6 +20,7 @@ jobs:
           - { name: saw, repo: ejfkdev/ShellAnyWhere }
           - { name: dns, repo: ejfkdev/dns }
           - { name: oss, repo: ejfkdev/oss }
+          - { name: jd, repo: ejfkdev/jd }
     steps:
       - uses: actions/checkout@v4
 
