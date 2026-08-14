@@ -70,10 +70,10 @@ PATTERNS = {
         "linux_intel": "dj-linux-amd64",
     },
     "udf": {
-        "macos_arm": "udf_{ver}_darwin_arm64.tar.gz",
-        "macos_intel": "udf_{ver}_darwin_amd64.tar.gz",
-        "linux_arm": "udf_{ver}_linux_arm64.tar.gz",
-        "linux_intel": "udf_{ver}_linux_amd64.tar.gz",
+        "macos_arm": "udf_v{ver}_darwin_arm64.tar.gz",
+        "macos_intel": "udf_v{ver}_darwin_amd64.tar.gz",
+        "linux_arm": "udf_v{ver}_linux_arm64.tar.gz",
+        "linux_intel": "udf_v{ver}_linux_amd64.tar.gz",
     },
     "apix": {
         "macos_arm": "apix_{ver}_darwin_arm64.tar.gz",
@@ -112,16 +112,16 @@ PATTERNS = {
         "linux_intel": "dns-{ver}-x86_64-unknown-linux-gnu",
     },
     "oss": {
-        "macos_arm": "oss-{ver}-darwin-arm64.tar.gz",
-        "macos_intel": "oss-{ver}-darwin-amd64.tar.gz",
-        "linux_arm": "oss-{ver}-linux-arm64.tar.gz",
-        "linux_intel": "oss-{ver}-linux-amd64.tar.gz",
+        "macos_arm": "oss-v{ver}-darwin-arm64.tar.gz",
+        "macos_intel": "oss-v{ver}-darwin-amd64.tar.gz",
+        "linux_arm": "oss-v{ver}-linux-arm64.tar.gz",
+        "linux_intel": "oss-v{ver}-linux-amd64.tar.gz",
     },
     "jd": {
-        "macos_arm": "jd-{ver}-darwin-arm64",
-        "macos_intel": "jd-{ver}-darwin-amd64",
-        "linux_arm": "jd-{ver}-linux-arm64",
-        "linux_intel": "jd-{ver}-linux-amd64",
+        "macos_arm": "jd-v{ver}-darwin-arm64",
+        "macos_intel": "jd-v{ver}-darwin-amd64",
+        "linux_arm": "jd-v{ver}-linux-arm64",
+        "linux_intel": "jd-v{ver}-linux-amd64",
     },
 }
 
