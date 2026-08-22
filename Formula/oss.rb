@@ -1,27 +1,27 @@
 class Oss < Formula
   desc "S3-compatible cross-cloud object storage CLI (AWS / Aliyun / Tencent / Huawei / Qiniu / GCS / R2 / MinIO ...)"
   homepage "https://github.com/ejfkdev/oss"
-  version "0.1.16"
+  version "0.2.3"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/oss/releases/download/v0.1.16/oss-v0.1.16-darwin-arm64.tar.gz"
-      sha256 "9226c075668279d469d5494f8343b35eb874267a7c29b82ff2a241f95773e6c2"
+      url "https://github.com/ejfkdev/oss/releases/download/v0.2.3/oss-v0.2.3-darwin-arm64.tar.gz"
+      sha256 "03e1fdb273b6fac5cbb52750101b33e8d2c283fa317aba02d873ac153c844b54"
     end
     on_intel do
-      url "https://github.com/ejfkdev/oss/releases/download/v0.1.16/oss-v0.1.16-darwin-amd64.tar.gz"
-      sha256 "d9775fd85e22b60dfdfb3835f9a65520f038ba24bbeca2d1ebb45db8242b1991"
+      url "https://github.com/ejfkdev/oss/releases/download/v0.2.3/oss-v0.2.3-darwin-amd64.tar.gz"
+      sha256 "2dea1f7813ecc7bdfc3325ccedcdc7c350f5d5b9da92b6a80946059af5334fe6"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/oss/releases/download/v0.1.16/oss-v0.1.16-linux-arm64.tar.gz"
-      sha256 "b8da642f0fe9beb4663778c688ea533a531b4d9157303604331604e06fdeca25"
+      url "https://github.com/ejfkdev/oss/releases/download/v0.2.3/oss-v0.2.3-linux-arm64.tar.gz"
+      sha256 "104935fe751d93e35627eab889c60f0c93c18cf62641d3b3de4e8d822f09f4bd"
     end
     on_intel do
-      url "https://github.com/ejfkdev/oss/releases/download/v0.1.16/oss-v0.1.16-linux-amd64.tar.gz"
-      sha256 "5a5c258b6878d5ccd8d0e30680c2b372fc9ad59f653640ca04f75cebc0440f59"
+      url "https://github.com/ejfkdev/oss/releases/download/v0.2.3/oss-v0.2.3-linux-amd64.tar.gz"
+      sha256 "7d1f11f85c078ea93c8a9624564b5a931f60da7e9ce82cd878159f4e94e02ba2"
     end
   end
 
