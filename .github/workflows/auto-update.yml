@@ -58,8 +58,17 @@ jobs:
           PR_NUMBER=$(gh pr list --head "auto-update-${{ matrix.formula.name }}" --state open --json number --jq '.[0].number')
           if [ -n "$PR_NUMBER" ]; then
             gh pr update-branch "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
-            gh pr merge "$PR_NUMBER" --squash --admin
-            echo "Merged PR #$PR_NUMBER"
+            for i in $(seq 1 12); do
+              if gh pr merge "$PR_NUMBER" --squash --admin --repo "$GITHUB_REPOSITORY" 2>/dev/null; then
+                echo "Merged PR #$PR_NUMBER"
+                exit 0
+              fi
+              state=$(gh pr view "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --json mergeStateStatus -q .mergeStateStatus 2>/dev/null || echo UNKNOWN)
+              echo "Merge attempt $i failed (merge state: $state), retrying in 5s..."
+              sleep 5
+            done
+            echo "ERROR: Failed to merge PR #$PR_NUMBER after 12 attempts" >&2
+            exit 1
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
