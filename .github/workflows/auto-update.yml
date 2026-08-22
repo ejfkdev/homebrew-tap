@@ -9,6 +9,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
         formula:
           - { name: dj, repo: ejfkdev/dj }
@@ -56,6 +57,7 @@ jobs:
         run: |
           PR_NUMBER=$(gh pr list --head "auto-update-${{ matrix.formula.name }}" --state open --json number --jq '.[0].number')
           if [ -n "$PR_NUMBER" ]; then
+            gh pr update-branch "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" 2>/dev/null || true
             gh pr merge "$PR_NUMBER" --squash --admin
             echo "Merged PR #$PR_NUMBER"
           fi
