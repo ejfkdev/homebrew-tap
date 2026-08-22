@@ -1,27 +1,27 @@
 class Dj < Formula
   desc "CLI tool by ejfkdev"
   homepage "https://github.com/ejfkdev/dj"
-  version "0.5.21"
+  version "0.6.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/dj/releases/download/v0.5.21/dj-darwin-arm64"
-      sha256 "7b2f4f36838c94a265bee0b2c6e165970b27084e4d8a934121cf9dbd8b876dc7"
+      url "https://github.com/ejfkdev/dj/releases/download/v0.6.0/dj-darwin-arm64"
+      sha256 "0d34ffef07498c09188d6f89f77c460dc0379adcc6d61ccde2bd4cfbd821e271"
     end
     on_intel do
-      url "https://github.com/ejfkdev/dj/releases/download/v0.5.21/dj-darwin-amd64"
-      sha256 "57a0e9f33b48b2d13791396bae50c9b0cf8ab6db72db98935dae83fb627989b3"
+      url "https://github.com/ejfkdev/dj/releases/download/v0.6.0/dj-darwin-amd64"
+      sha256 "678094f924a576c0add46d13485914136b2523166de84cf99a8d8e8998bf58d5"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/dj/releases/download/v0.5.21/dj-linux-arm64"
-      sha256 "f9cebe995deea9c7a788358fbf236b4d1e040b173c919f022f705b66571fb4eb"
+      url "https://github.com/ejfkdev/dj/releases/download/v0.6.0/dj-linux-arm64"
+      sha256 "3f15da06423bf79b92c01865cfe5428afd5a9a1014ca3842ea2d13bf2bc7ca84"
     end
     on_intel do
-      url "https://github.com/ejfkdev/dj/releases/download/v0.5.21/dj-linux-amd64"
-      sha256 "1ee9ca123e04b64cea55150d013f27efef4488da8ff066fd74aa9d4698619107"
+      url "https://github.com/ejfkdev/dj/releases/download/v0.6.0/dj-linux-amd64"
+      sha256 "9b37eaa41519081684df0bc3552518cb2a53969bad55dd95c61ca13279b01e1d"
     end
   end
 
