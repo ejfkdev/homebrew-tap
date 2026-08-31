@@ -123,6 +123,12 @@ PATTERNS = {
         "linux_arm": "jd-v{ver}-linux-arm64",
         "linux_intel": "jd-v{ver}-linux-amd64",
     },
+    "dae": {
+        "macos_arm": "dae-macOS-arm64",
+        "macos_intel": "dae-macOS-x64",
+        "linux_arm": "dae-Linux-arm64",
+        "linux_intel": "dae-Linux-x64",
+    },
 }
 
 # Extra resources for multi-binary formulas
@@ -238,6 +244,14 @@ INSTALL_TEST = {
 
   test do
     system "#{bin}/jd", "--help"
+  end""",
+    "dae": """
+  def install
+    bin.install Dir["dae-*"].first => "dae"
+  end
+
+  test do
+    system "#{bin}/dae", "--help"
   end""",
 }
 

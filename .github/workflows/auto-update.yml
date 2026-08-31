@@ -22,6 +22,7 @@ jobs:
           - { name: dns, repo: ejfkdev/dns }
           - { name: oss, repo: ejfkdev/oss }
           - { name: jd, repo: ejfkdev/jd }
+          - { name: dae, repo: ejfkdev/dae }
     steps:
       - uses: actions/checkout@v4
 
