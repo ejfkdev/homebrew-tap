@@ -19,6 +19,7 @@ brew install ejfkdev/tap/dns
 brew install ejfkdev/tap/oss
 brew install ejfkdev/tap/jd
 brew install ejfkdev/tap/dae
+brew install ejfkdev/tap/ov
 
 # 或者先添加 tap，再安装
 brew tap ejfkdev/tap
@@ -40,3 +41,4 @@ brew install dj
 | [oss](https://github.com/ejfkdev/oss) | 0.1.2 | S3 兼容的跨云对象存储 CLI（AWS / 阿里云 / 腾讯云 / 华为云 / 七牛 / GCS / R2 / MinIO） |
 | [jd](https://github.com/ejfkdev/jd) | 1.0.0 | JavaScript 反混淆工具（obfuscator.io + unminify）。webcrack 和 synchrony 的 Go 移植版 |
 | [dae](https://github.com/ejfkdev/dae) | 0.1.0 | Dart AOT snapshot 调试信息导出工具（IDA / radare2 / Frida） |
+| [ov](https://github.com/ejfkdev/ov) | 0.1.0 | 下载链接版本探测工具（自动识别版本号并枚举可下载的版本组合） |

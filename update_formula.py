@@ -129,6 +129,12 @@ PATTERNS = {
         "linux_arm": "dae-Linux-arm64",
         "linux_intel": "dae-Linux-x64",
     },
+    "ov": {
+        "macos_arm": "ov-darwin-arm64",
+        "macos_intel": "ov-darwin-amd64",
+        "linux_arm": "ov-linux-arm64",
+        "linux_intel": "ov-linux-amd64",
+    },
 }
 
 # Extra resources for multi-binary formulas
@@ -252,6 +258,14 @@ INSTALL_TEST = {
 
   test do
     system "#{bin}/dae", "--help"
+  end""",
+    "ov": """
+  def install
+    bin.install Dir["ov-*"].first => "ov"
+  end
+
+  test do
+    system "#{bin}/ov", "--help"
   end""",
 }
 
