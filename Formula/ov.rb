@@ -1,27 +1,27 @@
 class Ov < Formula
   desc "Download URL version prober: auto-detect the version in a download link and probe every version combination"
   homepage "https://github.com/ejfkdev/ov"
-  version "0.1.0"
+  version "0.1.1"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/ov/releases/download/v0.1.0/ov-darwin-arm64"
-      sha256 "72ec874772b635b02e758b0609521e0d1d363dacd6fce8c87cc8e8162e160920"
+      url "https://github.com/ejfkdev/ov/releases/download/v0.1.1/ov-darwin-arm64"
+      sha256 "c1be142874af8b68b3f52fd8046893085ec35fabeaa1bef97f3590a3de462fcf"
     end
     on_intel do
-      url "https://github.com/ejfkdev/ov/releases/download/v0.1.0/ov-darwin-amd64"
-      sha256 "c364412e3d4dc7c49e6d8dd2fd6ff9d0e4256ca0606258ab44468320c20be56f"
+      url "https://github.com/ejfkdev/ov/releases/download/v0.1.1/ov-darwin-amd64"
+      sha256 "fec44ce79fc8083e25120864c54b197e91fbf9a7362ae50cf9ff0e1793d07a4c"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/ov/releases/download/v0.1.0/ov-linux-arm64"
-      sha256 "fbe6c018441e2ce48d326fd246ad09596dd9838e88f05b620310376012688d5b"
+      url "https://github.com/ejfkdev/ov/releases/download/v0.1.1/ov-linux-arm64"
+      sha256 "95d2edd132ee3770b2f8ab085a941e9061f6ad5a77a03fb5bbd2ac58eddde242"
     end
     on_intel do
-      url "https://github.com/ejfkdev/ov/releases/download/v0.1.0/ov-linux-amd64"
-      sha256 "3853c3ecbd96724a5cac886febcb3f91fa8d2f7f136f7901cd6d83d9a899e5ab"
+      url "https://github.com/ejfkdev/ov/releases/download/v0.1.1/ov-linux-amd64"
+      sha256 "7970051bf699269bd270dc059c999443d9d3a40f722de43cda2d81c42ded1dd1"
     end
   end
 
