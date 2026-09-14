@@ -135,6 +135,18 @@ PATTERNS = {
         "linux_arm": "ov-linux-arm64",
         "linux_intel": "ov-linux-amd64",
     },
+    "jcdc": {
+        "macos_arm": "jcdc-v{ver}-macos-arm64",
+        "macos_intel": "jcdc-v{ver}-macos-amd64",
+        "linux_arm": "jcdc-v{ver}-linux-arm64",
+        "linux_intel": "jcdc-v{ver}-linux-amd64",
+    },
+    "pycdc": {
+        "macos_arm": "pycdc-aarch64-macos",
+        "macos_intel": "pycdc-x86_64-macos",
+        "linux_arm": "pycdc-aarch64-linux",
+        "linux_intel": "pycdc-x86_64-linux",
+    },
 }
 
 # Extra resources for multi-binary formulas
@@ -159,6 +171,14 @@ RESOURCES = {
             "macos_intel": "saw-shell-macos-x86_64",
             "linux_arm": "saw-shell-linux-arm64",
             "linux_intel": "saw-shell-linux-x86_64",
+        },
+    },
+    "pycdc": {
+        "pycdas": {
+            "macos_arm": "pycdas-aarch64-macos",
+            "macos_intel": "pycdas-x86_64-macos",
+            "linux_arm": "pycdas-aarch64-linux",
+            "linux_intel": "pycdas-x86_64-linux",
         },
     },
 }
@@ -267,6 +287,24 @@ INSTALL_TEST = {
   test do
     system "#{bin}/ov", "--help"
   end""",
+    "jcdc": """
+  def install
+    bin.install Dir["jcdc-*"].first => "jcdc"
+  end
+
+  test do
+    system "#{bin}/jcdc", "--help"
+  end""",
+    "pycdc": """
+  def install
+    bin.install Dir["pycdc-*"].first => "pycdc"
+    resource("pycdas").stage { bin.install Dir["pycdas-*"].first => "pycdas" }
+  end
+
+  test do
+    system "#{bin}/pycdc", "--help"
+    system "#{bin}/pycdas", "--help"
+  end""",
 }
 
 # ---- Generate formula ----
@@ -286,45 +324,46 @@ lines.append(f'  desc "{desc}"')
 lines.append(f'  homepage "{homepage}"')
 lines.append(f'  version "{version}"')
 
-# macOS block
-lines.append("")
-lines.append("  on_macos do")
-for arch_key, arch_ruby in [("macos_arm", "arm"), ("macos_intel", "intel")]:
-    lines.append(f"    on_{arch_ruby} do")
-    asset = formula_patterns[arch_key].format(ver=version)
-    sha = assets.get(asset, "MISSING")
-    lines.append(f'      url "{BASE_URL}/{asset}"')
-    lines.append(f'      sha256 "{sha}"')
-    for rname, rpatterns in formula_resources.items():
-        rass = rpatterns[arch_key].format(ver=version)
-        rsha = assets.get(rass, "MISSING")
-        lines.append("")
-        lines.append(f'      resource "{rname}" do')
-        lines.append(f'        url "{BASE_URL}/{rass}"')
-        lines.append(f'        sha256 "{rsha}"')
-        lines.append("      end")
-    lines.append("    end")
-lines.append("  end")
+# Platform blocks
+ARCH_LISTS = [
+    ("macos", [("macos_arm", "arm"), ("macos_intel", "intel")]),
+    ("linux", [("linux_arm", "arm"), ("linux_intel", "intel")]),
+]
 
-# Linux block
-lines.append("")
-lines.append("  on_linux do")
-for arch_key, arch_ruby in [("linux_arm", "arm"), ("linux_intel", "intel")]:
-    lines.append(f"    on_{arch_ruby} do")
+
+def arch_block_lines(platform, arch_key, arch_ruby):
     asset = formula_patterns[arch_key].format(ver=version)
-    sha = assets.get(asset, "MISSING")
-    lines.append(f'      url "{BASE_URL}/{asset}"')
-    lines.append(f'      sha256 "{sha}"')
+    sha = assets.get(asset, "")
+    if not sha:
+        print(f"  WARNING: asset not found for {platform}/{arch_key}, skipping: {asset}")
+        return []
+    block = [f"    on_{arch_ruby} do"]
+    block.append(f'      url "{BASE_URL}/{asset}"')
+    block.append(f'      sha256 "{sha}"')
     for rname, rpatterns in formula_resources.items():
         rass = rpatterns[arch_key].format(ver=version)
-        rsha = assets.get(rass, "MISSING")
+        rsha = assets.get(rass, "")
+        if not rsha:
+            print(f"  WARNING: resource asset not found for {platform}/{arch_key}, skipping: {rass}")
+            continue
+        block.append("")
+        block.append(f'      resource "{rname}" do')
+        block.append(f'        url "{BASE_URL}/{rass}"')
+        block.append(f'        sha256 "{rsha}"')
+        block.append("      end")
+    block.append("    end")
+    return block
+
+
+for platform, arch_list in ARCH_LISTS:
+    body = []
+    for arch_key, arch_ruby in arch_list:
+        body.extend(arch_block_lines(platform, arch_key, arch_ruby))
+    if body:
         lines.append("")
-        lines.append(f'      resource "{rname}" do')
-        lines.append(f'        url "{BASE_URL}/{rass}"')
-        lines.append(f'        sha256 "{rsha}"')
-        lines.append("      end")
-    lines.append("    end")
-lines.append("  end")
+        lines.append(f"  on_{platform} do")
+        lines.extend(body)
+        lines.append("  end")
 
 # Install and test
 lines.append(INSTALL_TEST[FORMULA])

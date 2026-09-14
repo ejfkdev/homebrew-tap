@@ -24,6 +24,8 @@ jobs:
           - { name: jd, repo: ejfkdev/jd }
           - { name: dae, repo: ejfkdev/dae }
           - { name: ov, repo: ejfkdev/ov }
+          - { name: jcdc, repo: ejfkdev/jcdc }
+          - { name: pycdc, repo: ejfkdev/pycdc }
     steps:
       - uses: actions/checkout@v4
 
