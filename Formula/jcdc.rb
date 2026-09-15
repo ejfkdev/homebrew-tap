@@ -1,27 +1,27 @@
 class Jcdc < Formula
   desc "Java class file decompiler written in Rust (Java 1.1-26, class version 45-70)"
   homepage "https://github.com/ejfkdev/jcdc"
-  version "0.1.1"
+  version "0.1.2"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/jcdc/releases/download/v0.1.1/jcdc-v0.1.1-macos-arm64"
-      sha256 "27e37b2336453ce8a686628be657d3e29820badcc13c80849cdfa8ed9afce63a"
+      url "https://github.com/ejfkdev/jcdc/releases/download/v0.1.2/jcdc-v0.1.2-macos-arm64"
+      sha256 "ebbdb1dbf9450cb75c64019c8322780f2ac1b00f9428d439924a8586ee308ea8"
     end
     on_intel do
-      url "https://github.com/ejfkdev/jcdc/releases/download/v0.1.1/jcdc-v0.1.1-macos-amd64"
-      sha256 "028e33475910f7bf9596212feba3cfb6308afe1392603ff71dddcb5943bec086"
+      url "https://github.com/ejfkdev/jcdc/releases/download/v0.1.2/jcdc-v0.1.2-macos-amd64"
+      sha256 "290d79dcd1f3089c8cf9516e831ec9a597e07a42789d68a04c19663c23970849"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/jcdc/releases/download/v0.1.1/jcdc-v0.1.1-linux-arm64"
-      sha256 "0da994fa1cb1ddcd8b41940cc79bfb74abcf770c6934db3bb3655e80519614db"
+      url "https://github.com/ejfkdev/jcdc/releases/download/v0.1.2/jcdc-v0.1.2-linux-arm64"
+      sha256 "4792787f67699ff53c7a4b40a6309da63a5f299a1f6f0dbb0e769d2ba9350141"
     end
     on_intel do
-      url "https://github.com/ejfkdev/jcdc/releases/download/v0.1.1/jcdc-v0.1.1-linux-amd64"
-      sha256 "73b235cf9212f4d8ad6a22771b8c4444bc93dfb51c56d4b9656d2ee4127e8943"
+      url "https://github.com/ejfkdev/jcdc/releases/download/v0.1.2/jcdc-v0.1.2-linux-amd64"
+      sha256 "14ea2ce2044696ac163682357867e5cbcb0142b56697fd3daa8b577dcf87448c"
     end
   end
 
