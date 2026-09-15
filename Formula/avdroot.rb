@@ -1,27 +1,27 @@
 class Avdroot < Formula
   desc "Root an Android Studio emulator by patching its ramdisk with Magisk, in pure Go"
   homepage "https://github.com/ejfkdev/avdroot"
-  version "0.1.0"
+  version "0.1.1"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/avdroot/releases/download/v0.1.0/avdroot_darwin_arm64"
-      sha256 "9903cc8a43951825d2c3e00de0fa8a958393d614d2a68dfa997afec4099030f8"
+      url "https://github.com/ejfkdev/avdroot/releases/download/v0.1.1/avdroot_darwin_arm64"
+      sha256 "238e7cb5c28732967c0309c7e72d84cc59f821e2e34d72772662fdbd92b340e2"
     end
     on_intel do
-      url "https://github.com/ejfkdev/avdroot/releases/download/v0.1.0/avdroot_darwin_amd64"
-      sha256 "f41f85ecaa045a82d6d785cd57fe44b3686f66db8e680f7ca527ca0c47f1ad3c"
+      url "https://github.com/ejfkdev/avdroot/releases/download/v0.1.1/avdroot_darwin_amd64"
+      sha256 "b246305fddfe4f86e382b34267de77ba4fedaddbfc33b89661612ddc09eeaae8"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/avdroot/releases/download/v0.1.0/avdroot_linux_arm64"
-      sha256 "b5091a3cc4e604798468837cdfa57b4545eecab75aadd2afc1fa879d90bc404a"
+      url "https://github.com/ejfkdev/avdroot/releases/download/v0.1.1/avdroot_linux_arm64"
+      sha256 "090d1b2d6e50e5ef0885373ba7da21ef4f871d5cc10078238b52986f89174b60"
     end
     on_intel do
-      url "https://github.com/ejfkdev/avdroot/releases/download/v0.1.0/avdroot_linux_amd64"
-      sha256 "a785a4f76bf5523d42838c0f6f46e31df9dc8dbfdc032c4eca4948fe8c7b81ef"
+      url "https://github.com/ejfkdev/avdroot/releases/download/v0.1.1/avdroot_linux_amd64"
+      sha256 "b101fe8ae9e99c82191a3327215b155b49b9ab94ea7bebf4b602ac76a6893627"
     end
   end
 
