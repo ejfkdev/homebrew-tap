@@ -22,6 +22,7 @@ brew install ejfkdev/tap/dae
 brew install ejfkdev/tap/ov
 brew install ejfkdev/tap/jcdc
 brew install ejfkdev/tap/pycdc
+brew install ejfkdev/tap/avdroot
 
 # Or tap first, then install
 brew tap ejfkdev/tap
@@ -46,3 +47,4 @@ brew install dj
 | [ov](https://github.com/ejfkdev/ov) | 0.1.1 | Download URL version prober: auto-detect the version in a download link and probe every version combination |
 | [jcdc](https://github.com/ejfkdev/jcdc) | 0.1.1 | Java class file decompiler written in Rust (Java 1.1-26, class version 45-70) |
 | [pycdc](https://github.com/ejfkdev/pycdc) | 0.6.0 | Python bytecode (.pyc/.pyo) decompiler & disassembler (Python 2.0-3.15, CPython/PyPy) |
+| [avdroot](https://github.com/ejfkdev/avdroot) | 0.1.0 | Root an Android Studio emulator by patching its ramdisk with Magisk, in pure Go |

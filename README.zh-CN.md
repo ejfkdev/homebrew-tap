@@ -22,6 +22,7 @@ brew install ejfkdev/tap/dae
 brew install ejfkdev/tap/ov
 brew install ejfkdev/tap/jcdc
 brew install ejfkdev/tap/pycdc
+brew install ejfkdev/tap/avdroot
 
 # 或者先添加 tap，再安装
 brew tap ejfkdev/tap
@@ -46,3 +47,4 @@ brew install dj
 | [ov](https://github.com/ejfkdev/ov) | 0.1.1 | 下载链接版本探测工具（自动识别版本号并枚举可下载的版本组合） |
 | [jcdc](https://github.com/ejfkdev/jcdc) | 0.1.1 | Rust 编写的 Java class 文件反编译器（Java 1.1-26，class 版本 45-70） |
 | [pycdc](https://github.com/ejfkdev/pycdc) | 0.6.0 | Python 字节码（.pyc/.pyo）反编译与反汇编工具（Python 2.0-3.15，CPython/PyPy） |
+| [avdroot](https://github.com/ejfkdev/avdroot) | 0.1.0 | 通过给 ramdisk 打 Magisk 补丁来 root Android Studio 模拟器（纯 Go 实现） |

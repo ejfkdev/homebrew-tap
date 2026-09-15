@@ -147,6 +147,12 @@ PATTERNS = {
         "linux_arm": "pycdc-aarch64-linux",
         "linux_intel": "pycdc-x86_64-linux",
     },
+    "avdroot": {
+        "macos_arm": "avdroot_darwin_arm64",
+        "macos_intel": "avdroot_darwin_amd64",
+        "linux_arm": "avdroot_linux_arm64",
+        "linux_intel": "avdroot_linux_amd64",
+    },
 }
 
 # Extra resources for multi-binary formulas
@@ -304,6 +310,14 @@ INSTALL_TEST = {
   test do
     system "#{bin}/pycdc", "--help"
     system "#{bin}/pycdas", "--help"
+  end""",
+    "avdroot": """
+  def install
+    bin.install Dir["avdroot_*"].first => "avdroot"
+  end
+
+  test do
+    system "#{bin}/avdroot", "--help"
   end""",
 }
 
