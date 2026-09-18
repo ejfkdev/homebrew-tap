@@ -153,6 +153,12 @@ PATTERNS = {
         "linux_arm": "avdroot_linux_arm64",
         "linux_intel": "avdroot_linux_amd64",
     },
+    "ddc": {
+        "macos_arm": "ddc-v{ver}-macos-arm64",
+        "macos_intel": "ddc-v{ver}-macos-amd64",
+        "linux_arm": "ddc-v{ver}-linux-arm64",
+        "linux_intel": "ddc-v{ver}-linux-amd64",
+    },
 }
 
 # Extra resources for multi-binary formulas
@@ -318,6 +324,14 @@ INSTALL_TEST = {
 
   test do
     system "#{bin}/avdroot", "--help"
+  end""",
+    "ddc": """
+  def install
+    bin.install Dir["ddc-*"].first => "ddc"
+  end
+
+  test do
+    system "#{bin}/ddc", "--help"
   end""",
 }
 

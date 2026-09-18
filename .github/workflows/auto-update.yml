@@ -27,6 +27,7 @@ jobs:
           - { name: jcdc, repo: ejfkdev/jcdc }
           - { name: pycdc, repo: ejfkdev/pycdc }
           - { name: avdroot, repo: ejfkdev/avdroot }
+          - { name: ddc, repo: ejfkdev/ddc }
     steps:
       - uses: actions/checkout@v4
 
