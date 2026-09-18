@@ -49,4 +49,4 @@ brew install dj
 | [jcdc](https://github.com/ejfkdev/jcdc) | 0.1.1 | Java class file decompiler written in Rust (Java 1.1-26, class version 45-70) |
 | [pycdc](https://github.com/ejfkdev/pycdc) | 0.6.0 | Python bytecode (.pyc/.pyo) decompiler & disassembler (Python 2.0-3.15, CPython/PyPy) |
 | [avdroot](https://github.com/ejfkdev/avdroot) | 0.1.0 | Root an Android Studio emulator by patching its ramdisk with Magisk, in pure Go |
-| [ddc](https://github.com/ejfkdev/ddc) | 0.1.0 | DEX to Java decompiler written in Rust |
+| [ddc](https://github.com/ejfkdev/ddc) | 0.1.1 | DEX to Java decompiler written in Rust |

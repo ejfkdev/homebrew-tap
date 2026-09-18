@@ -154,10 +154,10 @@ PATTERNS = {
         "linux_intel": "avdroot_linux_amd64",
     },
     "ddc": {
-        "macos_arm": "ddc-v{ver}-macos-arm64",
-        "macos_intel": "ddc-v{ver}-macos-amd64",
-        "linux_arm": "ddc-v{ver}-linux-arm64",
-        "linux_intel": "ddc-v{ver}-linux-amd64",
+        "macos_arm": "ddc-v{ver}-aarch64-apple-darwin",
+        "macos_intel": "ddc-v{ver}-x86_64-apple-darwin",
+        "linux_arm": "ddc-v{ver}-aarch64-unknown-linux-gnu",
+        "linux_intel": "ddc-v{ver}-x86_64-unknown-linux-gnu",
     },
 }
 
