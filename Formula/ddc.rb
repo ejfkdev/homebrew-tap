@@ -1,27 +1,27 @@
 class Ddc < Formula
   desc "DEX to Java decompiler written in Rust"
   homepage "https://github.com/ejfkdev/ddc"
-  version "0.1.7"
+  version "0.1.8"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/ddc/releases/download/v0.1.7/ddc-v0.1.7-aarch64-apple-darwin"
-      sha256 "fa76fd2c16b426acbf5f69163bad4b515b46fb35d818bb53c659350d549312b6"
+      url "https://github.com/ejfkdev/ddc/releases/download/v0.1.8/ddc-v0.1.8-aarch64-apple-darwin"
+      sha256 "2a89c25e94eb8a0bfcc7519eb71924a0a05dc897aac463c787a10565ac2e8a04"
     end
     on_intel do
-      url "https://github.com/ejfkdev/ddc/releases/download/v0.1.7/ddc-v0.1.7-x86_64-apple-darwin"
-      sha256 "c15c24ef6e6d561281cc23c1e067662aecba027965938c5e9691bbf32762406f"
+      url "https://github.com/ejfkdev/ddc/releases/download/v0.1.8/ddc-v0.1.8-x86_64-apple-darwin"
+      sha256 "8d877a4c893537672696aef78e655d2805e21f0b90a00c0882164a3c390e9244"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/ddc/releases/download/v0.1.7/ddc-v0.1.7-aarch64-unknown-linux-gnu"
-      sha256 "60d4ae0cad013956752bc808b92d61cdb9460e04c99d125d82e26c6ff2204643"
+      url "https://github.com/ejfkdev/ddc/releases/download/v0.1.8/ddc-v0.1.8-aarch64-unknown-linux-gnu"
+      sha256 "ec72975fe86642d42d1f3e966797594aad62908b684e7fc1594159ac970d9d4b"
     end
     on_intel do
-      url "https://github.com/ejfkdev/ddc/releases/download/v0.1.7/ddc-v0.1.7-x86_64-unknown-linux-gnu"
-      sha256 "5955b950a9163a3cf14e71cf7bec96edeef0aeee9c236e3a5fcca968338b5e64"
+      url "https://github.com/ejfkdev/ddc/releases/download/v0.1.8/ddc-v0.1.8-x86_64-unknown-linux-gnu"
+      sha256 "64c76b8e0a109fadcb0217ca3c7b001344b93fbf37247166ccf10c423ad3404a"
     end
   end
 
