@@ -1,27 +1,27 @@
 class Dae < Formula
   desc "Dart AOT snapshot debug-info exporter for IDA / radare2 / Frida"
   homepage "https://github.com/ejfkdev/dae"
-  version "0.1.2"
+  version "0.1.3"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/dae/releases/download/v0.1.2/dae-macOS-arm64"
-      sha256 "0f91b1ef412e64a0272bff1f84c9323fe19834405502b71a9b3931c93a5bae87"
+      url "https://github.com/ejfkdev/dae/releases/download/v0.1.3/dae-macOS-arm64"
+      sha256 "26edb04277ade450593778e528461977b575192a66d0412f37b77516ebbdad16"
     end
     on_intel do
-      url "https://github.com/ejfkdev/dae/releases/download/v0.1.2/dae-macOS-x64"
-      sha256 "37185d5913d7e6a64ce91f942a35e45b18507c7304e492d09c42b421bd52bf83"
+      url "https://github.com/ejfkdev/dae/releases/download/v0.1.3/dae-macOS-x64"
+      sha256 "521be9cabf29d021f44fb7e1a257c221b7df99649943fdce9cd150fe82ab1e77"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/dae/releases/download/v0.1.2/dae-Linux-arm64"
-      sha256 "3ab22250140e5fd693b6ad43dd0c427fd62539ec0fa0497c961fb8c0f8e7b992"
+      url "https://github.com/ejfkdev/dae/releases/download/v0.1.3/dae-Linux-arm64"
+      sha256 "8b7eabc90dd38079e7b1b4e8141bee270c909df268b8c30ec18d599bdd846bc6"
     end
     on_intel do
-      url "https://github.com/ejfkdev/dae/releases/download/v0.1.2/dae-Linux-x64"
-      sha256 "25009bc77eee6e8c6f2467a16ee9ea2b3b50be52820e42ecd979e098d57683e2"
+      url "https://github.com/ejfkdev/dae/releases/download/v0.1.3/dae-Linux-x64"
+      sha256 "bd76dd5e0c23c9301febdc8c2164056fa0d22e90a4d3176ea38e3b28466cf85c"
     end
   end
 
