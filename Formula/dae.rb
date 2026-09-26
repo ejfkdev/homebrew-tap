@@ -1,5 +1,5 @@
 class Dae < Formula
-  desc "Dart AOT snapshot debug-info exporter for IDA / radare2 / Frida"
+  desc "Dart AOT snapshot export for reverse engineering (IDA / radare2 / Frida) with a pseudocode decompiler"
   homepage "https://github.com/ejfkdev/dae"
   version "0.1.3"
 

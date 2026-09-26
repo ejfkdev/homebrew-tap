@@ -44,7 +44,7 @@ brew install dj
 | [dns](https://github.com/ejfkdev/dns) | 0.3.0 | Multi-server DNS query CLI (DoT/DoH/DoQ/HTTPDNS) |
 | [oss](https://github.com/ejfkdev/oss) | 0.2.5 | S3-compatible cross-cloud object storage CLI (AWS / Aliyun / Tencent / Huawei / Qiniu / GCS / R2 / MinIO) |
 | [jd](https://github.com/ejfkdev/jd) | 1.0.0 | JavaScript deobfuscator (obfuscator.io + unminify). Go port of webcrack and synchrony |
-| [dae](https://github.com/ejfkdev/dae) | 0.1.2 | Dart AOT snapshot debug-info exporter (IDA / radare2 / Frida) |
+| [dae](https://github.com/ejfkdev/dae) | 0.1.3 | Dart AOT snapshot export for reverse engineering (IDA / radare2 / Frida) with a pseudocode decompiler |
 | [ov](https://github.com/ejfkdev/ov) | 0.1.1 | Download URL version prober: auto-detect the version in a download link and probe every version combination |
 | [jcdc](https://github.com/ejfkdev/jcdc) | 0.1.1 | Java class file decompiler written in Rust (Java 1.1-26, class version 45-70) |
 | [pycdc](https://github.com/ejfkdev/pycdc) | 0.6.0 | Python bytecode (.pyc/.pyo) decompiler & disassembler (Python 2.0-3.15, CPython/PyPy) |
