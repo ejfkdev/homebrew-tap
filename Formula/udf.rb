@@ -1,27 +1,27 @@
 class Udf < Formula
   desc "CLI tool by ejfkdev"
   homepage "https://github.com/ejfkdev/udf"
-  version "0.6.1"
+  version "0.6.2"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/udf/releases/download/v0.6.1/udf_v0.6.1_darwin_arm64.tar.gz"
-      sha256 "bb2dd7c5a38d4cafa615c7401ccdd0cd299a19d3f9b35b1bb90d74cb47bf8363"
+      url "https://github.com/ejfkdev/udf/releases/download/v0.6.2/udf_v0.6.2_darwin_arm64.tar.gz"
+      sha256 "21a6235bff06cb41edae55c4cd9044d56564ca8455a295faef2b60629ca87866"
     end
     on_intel do
-      url "https://github.com/ejfkdev/udf/releases/download/v0.6.1/udf_v0.6.1_darwin_amd64.tar.gz"
-      sha256 "104434c613ded41fcbf9f82559a690ac1adeed10e2fea88480504e288a234ff8"
+      url "https://github.com/ejfkdev/udf/releases/download/v0.6.2/udf_v0.6.2_darwin_amd64.tar.gz"
+      sha256 "3dbd3ee8c4b03c8a49d4c3acb3094bbeeee47775e61dada80c0043761fddf5ad"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/udf/releases/download/v0.6.1/udf_v0.6.1_linux_arm64.tar.gz"
-      sha256 "4171c9cda83dae3f928f455ed77f3bbf9193abcb7ef32d33ade44f6e29174e93"
+      url "https://github.com/ejfkdev/udf/releases/download/v0.6.2/udf_v0.6.2_linux_arm64.tar.gz"
+      sha256 "605443cf4eabbb7665e989ac7f3c1ea8109e5681e5843fbe6f16649402a87a7d"
     end
     on_intel do
-      url "https://github.com/ejfkdev/udf/releases/download/v0.6.1/udf_v0.6.1_linux_amd64.tar.gz"
-      sha256 "7b4f30edd3830a38e2670ba2b45d069b48175d59bde2c21af6004790aff15756"
+      url "https://github.com/ejfkdev/udf/releases/download/v0.6.2/udf_v0.6.2_linux_amd64.tar.gz"
+      sha256 "511bd110ddfca8d79ba3e1e6ceccc151249e237f7f19ecc3afb61d9d08bc299a"
     end
   end
 
