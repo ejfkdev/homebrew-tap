@@ -159,6 +159,12 @@ PATTERNS = {
         "linux_arm": "ddc-v{ver}-aarch64-unknown-linux-gnu",
         "linux_intel": "ddc-v{ver}-x86_64-unknown-linux-gnu",
     },
+    "jscd": {
+        "macos_arm": "jscd-v{ver}-macos-arm64",
+        "macos_intel": "jscd-v{ver}-macos-amd64",
+        "linux_arm": "jscd-v{ver}-linux-arm64",
+        "linux_intel": "jscd-v{ver}-linux-amd64",
+    },
 }
 
 # Extra resources for multi-binary formulas
@@ -332,6 +338,14 @@ INSTALL_TEST = {
 
   test do
     system "#{bin}/ddc", "--help"
+  end""",
+    "jscd": """
+  def install
+    bin.install Dir["jscd-*"].first => "jscd"
+  end
+
+  test do
+    system "#{bin}/jscd", "--help"
   end""",
 }
 

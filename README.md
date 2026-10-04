@@ -24,6 +24,7 @@ brew install ejfkdev/tap/jcdc
 brew install ejfkdev/tap/pycdc
 brew install ejfkdev/tap/avdroot
 brew install ejfkdev/tap/ddc
+brew install ejfkdev/tap/jscd
 
 # Or tap first, then install
 brew tap ejfkdev/tap
@@ -50,3 +51,4 @@ brew install dj
 | [pycdc](https://github.com/ejfkdev/pycdc) | 0.6.0 | Python bytecode (.pyc/.pyo) decompiler & disassembler (Python 2.0-3.15, CPython/PyPy) |
 | [avdroot](https://github.com/ejfkdev/avdroot) | 0.1.0 | Root an Android Studio emulator by patching its ramdisk with Magisk, in pure Go |
 | [ddc](https://github.com/ejfkdev/ddc) | 0.1.1 | DEX to Java decompiler written in Rust |
+| [jscd](https://github.com/ejfkdev/jscd) | 0.1.0 | JavaScript .jsc (V8 code cache) decompiler written in Rust (Node 8.0-26.10, V8 5.8-14.6) |

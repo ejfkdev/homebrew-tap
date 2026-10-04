@@ -24,6 +24,7 @@ brew install ejfkdev/tap/jcdc
 brew install ejfkdev/tap/pycdc
 brew install ejfkdev/tap/avdroot
 brew install ejfkdev/tap/ddc
+brew install ejfkdev/tap/jscd
 
 # 或者先添加 tap，再安装
 brew tap ejfkdev/tap
@@ -50,3 +51,4 @@ brew install dj
 | [pycdc](https://github.com/ejfkdev/pycdc) | 0.6.0 | Python 字节码（.pyc/.pyo）反编译与反汇编工具（Python 2.0-3.15，CPython/PyPy） |
 | [avdroot](https://github.com/ejfkdev/avdroot) | 0.1.0 | 通过给 ramdisk 打 Magisk 补丁来 root Android Studio 模拟器（纯 Go 实现） |
 | [ddc](https://github.com/ejfkdev/ddc) | 0.1.1 | Rust 编写的 DEX → Java 反编译器 |
+| [jscd](https://github.com/ejfkdev/jscd) | 0.1.0 | Rust 编写的 JavaScript .jsc（V8 code cache）反编译器（Node 8.0-26.10，V8 5.8-14.6） |
