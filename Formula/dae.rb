@@ -1,27 +1,27 @@
 class Dae < Formula
   desc "Dart AOT snapshot export for reverse engineering (IDA / radare2 / Frida) with a pseudocode decompiler"
   homepage "https://github.com/ejfkdev/dae"
-  version "0.1.12"
+  version "0.1.13"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/dae/releases/download/v0.1.12/dae-macOS-arm64"
-      sha256 "6cc456078b0c57d9002f0489a225516dd0f8bd5c5ddfedb30d266859823e42a0"
+      url "https://github.com/ejfkdev/dae/releases/download/v0.1.13/dae-macOS-arm64"
+      sha256 "1cdbe78aadf143f23027469aac8be6993c67839f0595956e7a7fb57c66dd44c3"
     end
     on_intel do
-      url "https://github.com/ejfkdev/dae/releases/download/v0.1.12/dae-macOS-x64"
-      sha256 "ba6a74846e936fcd3ea9780d7f656c10952e09686a033f7a6fa13dc24dcfc20c"
+      url "https://github.com/ejfkdev/dae/releases/download/v0.1.13/dae-macOS-x64"
+      sha256 "14aa6c90ca3dbecd2404ffc7036e30fb616f89f203db1d0dbf9b095da614f568"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/dae/releases/download/v0.1.12/dae-Linux-arm64"
-      sha256 "3cf4f18658e93061e2360cec1d375b927a1eeea67ec4993176a246e3735e6e6f"
+      url "https://github.com/ejfkdev/dae/releases/download/v0.1.13/dae-Linux-arm64"
+      sha256 "36d161c0af694aa087d2bdea81902e64c5a6ae236c4fba25566b381f788fdc09"
     end
     on_intel do
-      url "https://github.com/ejfkdev/dae/releases/download/v0.1.12/dae-Linux-x64"
-      sha256 "b32ba2d8889f0638e30b7e52d6cfec9c9249c8a8c120f0213614fe6880117d17"
+      url "https://github.com/ejfkdev/dae/releases/download/v0.1.13/dae-Linux-x64"
+      sha256 "37fb8ddea7fe0710d6994ac3f9c0484d9b1aa9b320cfae134fc76a78b9f5db7f"
     end
   end
 
