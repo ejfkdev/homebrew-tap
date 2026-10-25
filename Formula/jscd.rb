@@ -1,27 +1,27 @@
 class Jscd < Formula
   desc "JavaScript .jsc (V8 code cache) decompiler written in Rust (Node 8.0-26.10, V8 5.8-14.6)"
   homepage "https://github.com/ejfkdev/jscd"
-  version "0.2.1"
+  version "0.2.2"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/jscd/releases/download/v0.2.1/jscd-v0.2.1-macos-arm64"
-      sha256 "a2869dbafc465991db5eee3879d1c44765d95bb0e8831589c4574582577f7032"
+      url "https://github.com/ejfkdev/jscd/releases/download/v0.2.2/jscd-v0.2.2-macos-arm64"
+      sha256 "ba50f84499e7453531cc24e925b36a31594d3bc641b61acb633f268cbd808212"
     end
     on_intel do
-      url "https://github.com/ejfkdev/jscd/releases/download/v0.2.1/jscd-v0.2.1-macos-amd64"
-      sha256 "3604b3704feb439ee82a0f9618eb8cfd73a57b0819ce2f8844b8c660def2e1b6"
+      url "https://github.com/ejfkdev/jscd/releases/download/v0.2.2/jscd-v0.2.2-macos-amd64"
+      sha256 "43164a80d98244ee6a940139b76f92319bee589ef21fa75918fe4883fbe8bc83"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/jscd/releases/download/v0.2.1/jscd-v0.2.1-linux-arm64"
-      sha256 "10999c1b3acce92eced8499d992582418d8ba6d5ec119cc8c35af5d1e93a4bd7"
+      url "https://github.com/ejfkdev/jscd/releases/download/v0.2.2/jscd-v0.2.2-linux-arm64"
+      sha256 "53dc8bc9568ba89623492e47015c77914e55e4b220d86eb6b1e4cc870691cfc0"
     end
     on_intel do
-      url "https://github.com/ejfkdev/jscd/releases/download/v0.2.1/jscd-v0.2.1-linux-amd64"
-      sha256 "2316efb571adb7121d00c2a69d765ae71e36f5b6bc09be697c561d603cf7e026"
+      url "https://github.com/ejfkdev/jscd/releases/download/v0.2.2/jscd-v0.2.2-linux-amd64"
+      sha256 "db7fe4108ee803471638e9a437cca8a2b0a4a182e09233f9f0971cfac33a097a"
     end
   end
 
