@@ -1,46 +1,46 @@
 class Pycdc < Formula
   desc "Python bytecode (.pyc/.pyo) decompiler and disassembler (Python 2.0-3.15, CPython/PyPy)"
   homepage "https://github.com/ejfkdev/pycdc"
-  version "0.8.1"
+  version "0.8.2"
 
   on_macos do
     on_arm do
-      url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.1/pycdc-aarch64-macos"
-      sha256 "0a1dd9db2403ae92e67b9bcf54e85a109cdf193ee14aaf27d2f06b1949d02df3"
+      url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.2/pycdc-aarch64-macos"
+      sha256 "baba4cde955fc30c36e8275c2d091a2fe852e03440c8559399f57c16f7bacf1c"
 
       resource "pycdas" do
-        url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.1/pycdas-aarch64-macos"
-        sha256 "0c00a6b5027e34fa8d9b1c9b110c651d5d1fed9349e22e8328db84ffb4e49ef2"
+        url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.2/pycdas-aarch64-macos"
+        sha256 "a7aeed99eb8cd298c1c5f9705b32824346ed06d25cee2b83ea8bd142c92b665c"
       end
     end
     on_intel do
-      url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.1/pycdc-x86_64-macos"
-      sha256 "43433fbd7752dbc2a365a38fc95515795ac17099e0ad8c721e9be11bce2a5327"
+      url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.2/pycdc-x86_64-macos"
+      sha256 "bc3c36ba6a9847595adca2ef43cd0616159a5aeae02afcdff0dc29f67b4d4d2f"
 
       resource "pycdas" do
-        url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.1/pycdas-x86_64-macos"
-        sha256 "c4c66f749bb692feeb8b5110cf034c175645ca9cf25294c721bb24c175183c9b"
+        url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.2/pycdas-x86_64-macos"
+        sha256 "81c24e01126361d647ba63cff1ab4b5dc5df78f9398772531250010b36f21410"
       end
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.1/pycdc-aarch64-linux"
-      sha256 "a75c6ae545000fd71b1a1575f451e04114d63395d5ae2590a163ff86de0c1eb8"
+      url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.2/pycdc-aarch64-linux"
+      sha256 "6d717ca386dfd03905c9d1adba2274672eed2a286c1345e19ad0f9fd9a4c5347"
 
       resource "pycdas" do
-        url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.1/pycdas-aarch64-linux"
-        sha256 "6e4385362e5a3495b120f263112779616e766d8ef0dfddc6635a612fa1e459c9"
+        url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.2/pycdas-aarch64-linux"
+        sha256 "3d45013086cfc01fc75667177c9d5af733028015c80e9a2d8d06f077fc674940"
       end
     end
     on_intel do
-      url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.1/pycdc-x86_64-linux"
-      sha256 "4906970132548fd58812d563dd334ba798cbd6c726e705b55404276e5296a7d4"
+      url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.2/pycdc-x86_64-linux"
+      sha256 "d6ddaca319e78f74f196a9533e5144d48c4a7fe7723b895d4c4428febe2c9be8"
 
       resource "pycdas" do
-        url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.1/pycdas-x86_64-linux"
-        sha256 "c788c46b64107861465286580b6d74e944a00415c39f6954b52b99b893f46b08"
+        url "https://github.com/ejfkdev/pycdc/releases/download/v0.8.2/pycdas-x86_64-linux"
+        sha256 "04ee19b0f4b19472509f2da2e03857b9c66a680f265974318aa2a6557318cadd"
       end
     end
   end
